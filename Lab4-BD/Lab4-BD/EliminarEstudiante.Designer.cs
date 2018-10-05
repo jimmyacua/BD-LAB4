@@ -48,6 +48,7 @@
             this.agregarEst.TabIndex = 0;
             this.agregarEst.Text = "Ir a agregar estudiante";
             this.agregarEst.UseSelectable = true;
+            this.agregarEst.Click += new System.EventHandler(this.agregarEst_Click);
             // 
             // listaEst
             // 

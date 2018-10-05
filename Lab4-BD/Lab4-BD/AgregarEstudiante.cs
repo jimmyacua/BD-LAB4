@@ -16,6 +16,7 @@ namespace Lab4_BD
     public partial class AgregarEstudiante : MetroForm
     {
         public Estudiante estudiante;
+
         public AgregarEstudiante()
         {
             InitializeComponent();
@@ -29,12 +30,16 @@ namespace Lab4_BD
 
         private void metroLink1_Click(object sender, EventArgs e)
         {
-
+            ListaEstudiante lista = new ListaEstudiante();
+            lista.Show();
+            Hide();
         }
 
         private void metroLink2_Click(object sender, EventArgs e)
         {
-
+            EliminarEstudiante eliminar = new EliminarEstudiante();
+            eliminar.Show();
+            Hide();
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)

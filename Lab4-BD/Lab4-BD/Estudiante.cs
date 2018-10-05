@@ -21,15 +21,15 @@ namespace Lab4_BD
             bd = new AccesoBaseDatos();
         }
 
-        public int AgregarEstudiante(string cedula, string carne, string nombre,
-                string ape1, string ape2, string email, char genero, string fechaNac,       
-                string direccion, string telefono, int estado)
+        public int AgregarEstudiante(string Cedula, string Email, string Nombre,
+                string Apellido1, string Apellido2, char sexo, string FechaNac, string Direccion,       
+                string Telefono, string Carné, string Estado)
         {
-            String insertar = "INSERT INTO Estudiante (cedula, carne, nombrep," +
-                              " apellido1, apellido2, email, sexo, fechaNac, direccion, telefono," +
-                            " estado) VALUES(" + cedula + ", '" + carne + "', '" + nombre + "', '" +
-                              ape1 + "','" + ape2 + "', '" + email + "', '" + genero + "', '" +
-                                fechaNac + "', '" + direccion + "', '" + telefono + "', '" + 1 + "')";
+            String insertar = "INSERT INTO Estudiante (Cedula, Email, Nombre," +
+                              " Apellido1, Apellido2, sexo, FechaNac, Direccion, Telefono, Carné," +
+                            " Estado) VALUES(" + Cedula + ", '" + Email + "', '" + Nombre + "', '" +
+                              Apellido1 + "','" + Apellido2 + "', '" + sexo + "', '" + FechaNac + "', '" +
+                                Direccion + "', '" + Telefono + "', '" + Carné + "', '" + Estado + "')";
             return bd.ActualizarDatos(insertar);
         }
 
@@ -38,7 +38,7 @@ namespace Lab4_BD
             SqlDataReader datos = null;
             try
             {
-                datos = bd.EjecutarConsulta("SELECT DISTINCT nombrep FROM Estudiante");
+                datos = bd.EjecutarConsulta("SELECT DISTINCT Nombre FROM Estudiante");
             }
             catch (SqlException ex)
             {
@@ -60,26 +60,26 @@ namespace Lab4_BD
                 //tiene el filtro
             else if (filtroGeneral != null)
                 {
-                    tabla = bd.EjecutarConsultaTabla("SELECT * FROM Estudiante WHERE nombrep = '" 
+                    tabla = bd.EjecutarConsultaTabla("SELECT * FROM Estudiante WHERE Nombre = '" 
                         + filtroGeneral + "'" );
                     }
                 //Si el filtro general no es nulo cargan los estudiantes con
                 //atributos que contengan ese filtro como parte del atributo(like)
                 else if (filtroNombre != null)
                 {
-                    tabla = bd.EjecutarConsultaTabla("SELECT * FROM Estudiante WHERE nombrep LIKE '%" 
-                        + filtroGeneral + "%' OR apellido1 like '%" + filtroGeneral 
-                        + "%' OR apellido2 LIKE '%" + filtroGeneral + "%' OR cedulaLIKE '%" + 
-                        filtroGeneral + "%' OR carne LIKE '%" + filtroGeneral + "%'");
+                    tabla = bd.EjecutarConsultaTabla("SELECT * FROM Estudiante WHERE Nombre LIKE '%"
+                        + filtroGeneral + "%' OR Apellido1 like '%" + filtroGeneral 
+                        + "%' OR Apellido2 LIKE '%" + filtroGeneral + "%' OR Cedula LIKE '%" + 
+                        filtroGeneral + "%' OR Carné LIKE '%" + filtroGeneral + "%'");
                 }
                 //Si ninguno de los filtros es nulo carga los estudiantes que
                 //coincidan con ambos filtros
                 else if (filtroGeneral != null && filtroNombre != null)
                 {
-                    tabla = bd.EjecutarConsultaTabla("Select * from estudiante where nombrep = '" + filtroNombre + "' && nombrep like '%" +
-                    filtroGeneral + "%' OR apellido1 like '%" + filtroGeneral +
-                    "%' OR apellido2 like '%" + filtroGeneral + "%' OR cedula like '%" 
-                    + filtroGeneral + "%' OR carne like '%" + filtroGeneral + "%'");
+                    tabla = bd.EjecutarConsultaTabla("Select * from estudiante where Nombre = '" + filtroNombre + "' && Nombre like '%" +
+                    filtroGeneral + "%' OR Apellido1 like '%" + filtroGeneral +
+                    "%' OR apellido2 like '%" + filtroGeneral + "%' OR Cedula like '%" 
+                    + filtroGeneral + "%' OR Carné like '%" + filtroGeneral + "%'");
                 }
             }
             catch (SqlException ex)

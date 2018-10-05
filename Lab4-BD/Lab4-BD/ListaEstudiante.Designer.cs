@@ -50,6 +50,7 @@
             this.agregarEst.TabIndex = 0;
             this.agregarEst.Text = "Ir a agregar estudiantes";
             this.agregarEst.UseSelectable = true;
+            this.agregarEst.Click += new System.EventHandler(this.agregarEst_Click);
             // 
             // elimEst
             // 
@@ -59,6 +60,7 @@
             this.elimEst.TabIndex = 1;
             this.elimEst.Text = "Ir a eliminar estudiantes";
             this.elimEst.UseSelectable = true;
+            this.elimEst.Click += new System.EventHandler(this.elimEst_Click);
             // 
             // pictureBox1
             // 
@@ -155,7 +157,6 @@
             this.listEstu.Name = "listEstu";
             this.listEstu.Size = new System.Drawing.Size(754, 161);
             this.listEstu.TabIndex = 9;
-            this.listEstu.SelectionChanged += new System.EventHandler(this.listEstu_SelectionChanged);
             // 
             // ListaEstudiante
             // 

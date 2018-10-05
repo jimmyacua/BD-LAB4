@@ -33,7 +33,9 @@ namespace Lab4_BD
 
         private void metroLink2_Click(object sender, EventArgs e)
         {
-
+            ListaEstudiante lista = new ListaEstudiante();
+            lista.Show();
+            Hide();
         }
 
         private void nombres_SelectedIndexChanged(object sender, EventArgs e)
@@ -90,6 +92,13 @@ namespace Lab4_BD
         private void listEst_SelectionChanged(object sender, EventArgs e)
         {
             LlenarTabla(listEst);
+        }
+
+        private void agregarEst_Click(object sender, EventArgs e)
+        {
+            AgregarEstudiante agregar = new AgregarEstudiante();
+            agregar.Show();
+            Hide();
         }
     }
 }

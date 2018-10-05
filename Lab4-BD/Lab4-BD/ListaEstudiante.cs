@@ -28,7 +28,7 @@ namespace Lab4_BD
             LlenarCombobox(nombres);
             //Llena el datagridview de estudiantes con todas las tuplas de
             //estudiante de la interfaz
-            LlenarTabla(listEstu);
+            LlenarTabla(listEstu, null, null);
         }
 
         private void metroLabel1_Click(object sender, EventArgs e)
@@ -45,7 +45,7 @@ namespace Lab4_BD
         {
             // Se obtiene un dataReader con todos los nombres de los estudiantes
             //de la base de datos
-            SqlDataReader datos = estudiante.ObtenerListaNombresEstudiantes();
+            SqlDataReader datos = estudiante.ObtenerListaNombresEstudiantes(); //está tardando mucho acá
             /* Si existen datos en la base de datos se carga como primer
             elemento del combobox un dato "Seleccione" y luego se cargan todos los
             datos de la base de datos*/
@@ -68,12 +68,27 @@ namespace Lab4_BD
             combobox.SelectedIndex = 0;
         }
 
-        private void LlenarTabla(DataGridView dataGridView)
+        private void LlenarTabla(DataGridView dataGridView, string filtroComBox, string textBox)
         {
             /* Obtiene un dataTable con todos los estudiantes que se encuentran
             en la base de datos (null, null) es para vengan todas las tuplas sin
             ningún filtro*/
-            DataTable tabla = estudiante.ObtenerEstudiantes(null, null);
+            DataTable tabla = new DataTable();
+            if (filtroComBox == null && textBox == null)
+            {
+                tabla = estudiante.ObtenerEstudiantes(null, null);
+            }
+            else if (filtroComBox == null && textBox != null)
+            {
+                tabla = estudiante.ObtenerEstudiantes(null, textBox);
+            }
+            else if (filtroComBox != null && textBox == null)
+            {
+                tabla = estudiante.ObtenerEstudiantes(filtroComBox, null);
+            }
+            else {
+                tabla = estudiante.ObtenerEstudiantes(filtroComBox, textBox);
+            }
             // Se inicializa el source para cargar el datagridview y se le
             //asigna el dataTable obtenido
             BindingSource bindingSource = new BindingSource();
@@ -87,19 +102,23 @@ namespace Lab4_BD
             }
         }
 
-        private void listEstu_SelectionChanged(object sender, EventArgs e)
-        {
-            LlenarTabla(listEstu);
-        }
-
         private void buscar_Click(object sender, EventArgs e)
         {
-            // Crea la interfaz EliminarEstudiante y la muestra, desaparece la
-            //interfaz actual
+            
+        }
+
+        private void agregarEst_Click(object sender, EventArgs e)
+        {
+            AgregarEstudiante agregar = new AgregarEstudiante();
+            agregar.Show();
+            Hide();
+        }
+
+        private void elimEst_Click(object sender, EventArgs e)
+        {
             EliminarEstudiante eliminar = new EliminarEstudiante();
             eliminar.Show();
-            this.Hide();
-           
+            Hide();
         }
     }
 }
