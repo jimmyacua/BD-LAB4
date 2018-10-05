@@ -87,7 +87,6 @@
             this.nombres.Size = new System.Drawing.Size(121, 29);
             this.nombres.TabIndex = 4;
             this.nombres.UseSelectable = true;
-            this.nombres.SelectedIndexChanged += new System.EventHandler(this.nombres_SelectedIndexChanged);
             // 
             // eliminar
             // 

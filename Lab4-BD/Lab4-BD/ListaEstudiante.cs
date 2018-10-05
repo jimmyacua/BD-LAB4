@@ -38,7 +38,7 @@ namespace Lab4_BD
 
         private void nombres_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+               LlenarTabla(listEstu, nombres.Text, null);
         }
 
         private void LlenarCombobox(ComboBox combobox)

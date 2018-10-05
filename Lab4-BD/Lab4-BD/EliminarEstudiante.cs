@@ -37,11 +37,8 @@ namespace Lab4_BD
             lista.Show();
             Hide();
         }
-
-        private void nombres_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+  
+ 
 
         private void LlenarCombobox(ComboBox combobox)
         {
