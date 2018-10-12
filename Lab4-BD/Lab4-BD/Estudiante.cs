@@ -33,6 +33,7 @@ namespace Lab4_BD
             return bd.ActualizarDatos(insertar);
         }
 
+
         public SqlDataReader ObtenerListaNombresEstudiantes()
         {
             SqlDataReader datos = null;
@@ -67,10 +68,12 @@ namespace Lab4_BD
                 //atributos que contengan ese filtro como parte del atributo(like)
                 else if (filtroNombre != null)
                 {
-                    tabla = bd.EjecutarConsultaTabla("SELECT * FROM Estudiante WHERE Nombre LIKE '%"
+                    /*tabla = bd.EjecutarConsultaTabla("SELECT * FROM Estudiante WHERE Nombre LIKE '%"
                         + filtroGeneral + "%' OR Apellido1 like '%" + filtroGeneral 
                         + "%' OR Apellido2 LIKE '%" + filtroGeneral + "%' OR Cedula LIKE '%" + 
-                        filtroGeneral + "%' OR Carné LIKE '%" + filtroGeneral + "%'");
+                        filtroGeneral + "%' OR Carné LIKE '%" + filtroGeneral + "%'");*/
+                    tabla = bd.EjecutarConsultaTabla("SELECT * FROM Estudiante WHERE Nombre = '"
+                    + filtroNombre + "'");
                 }
                 //Si ninguno de los filtros es nulo carga los estudiantes que
                 //coincidan con ambos filtros

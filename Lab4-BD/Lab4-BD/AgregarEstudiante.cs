@@ -16,9 +16,11 @@ namespace Lab4_BD
     public partial class AgregarEstudiante : MetroForm
     {
         public Estudiante estudiante;
+        char sexo;
 
         public AgregarEstudiante()
         {
+            sexo = 'O';
             InitializeComponent();
             estudiante = new Estudiante();
         }
@@ -60,6 +62,23 @@ namespace Lab4_BD
         private void metroLabel1_Click_2(object sender, EventArgs e)
         {
 
+        }
+
+        private void guardar_Click(object sender, EventArgs e)
+        {
+         estudiante.AgregarEstudiante(idField.Text, em.Text, nom.Text, ap1.Text, ap2.Text, sexo, 
+             fecha.Text, dir.Text, tel.Text, carnebox.Text, estad.Text);
+         
+        }
+
+        private void fem_CheckedChanged(object sender, EventArgs e)
+        {
+            sexo = 'F';
+        }
+
+        private void masc_CheckedChanged(object sender, EventArgs e)
+        {
+            sexo = 'M';
         }
     }
 }

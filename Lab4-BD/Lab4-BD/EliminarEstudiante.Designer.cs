@@ -32,12 +32,12 @@
             this.listaEst = new MetroFramework.Controls.MetroLink();
             this.iconBorrar = new System.Windows.Forms.PictureBox();
             this.nombre = new MetroFramework.Controls.MetroLabel();
-            this.nombres = new MetroFramework.Controls.MetroComboBox();
+            this.filtroNombre = new MetroFramework.Controls.MetroComboBox();
             this.eliminar = new MetroFramework.Controls.MetroButton();
-            this.listEst = new System.Windows.Forms.DataGridView();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
             this.estudiantes = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.iconBorrar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listEst)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // agregarEst
@@ -78,33 +78,33 @@
             this.nombre.TabIndex = 3;
             this.nombre.Text = "Nombre";
             // 
-            // nombres
+            // filtroNombre
             // 
-            this.nombres.FormattingEnabled = true;
-            this.nombres.ItemHeight = 23;
-            this.nombres.Location = new System.Drawing.Point(89, 176);
-            this.nombres.Name = "nombres";
-            this.nombres.Size = new System.Drawing.Size(121, 29);
-            this.nombres.TabIndex = 4;
-            this.nombres.UseSelectable = true;
+            this.filtroNombre.FormattingEnabled = true;
+            this.filtroNombre.ItemHeight = 23;
+            this.filtroNombre.Location = new System.Drawing.Point(89, 176);
+            this.filtroNombre.Name = "filtroNombre";
+            this.filtroNombre.Size = new System.Drawing.Size(255, 29);
+            this.filtroNombre.TabIndex = 4;
+            this.filtroNombre.UseSelectable = true;
+            this.filtroNombre.SelectedIndexChanged += new System.EventHandler(this.filtroNombre_SelectedIndexChanged);
             // 
             // eliminar
             // 
-            this.eliminar.Location = new System.Drawing.Point(591, 182);
+            this.eliminar.Location = new System.Drawing.Point(480, 182);
             this.eliminar.Name = "eliminar";
             this.eliminar.Size = new System.Drawing.Size(75, 23);
             this.eliminar.TabIndex = 5;
             this.eliminar.Text = "Eliminar";
             this.eliminar.UseSelectable = true;
             // 
-            // listEst
+            // dataGridView
             // 
-            this.listEst.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.listEst.Location = new System.Drawing.Point(24, 253);
-            this.listEst.Name = "listEst";
-            this.listEst.Size = new System.Drawing.Size(736, 186);
-            this.listEst.TabIndex = 6;
-            this.listEst.SelectionChanged += new System.EventHandler(this.listEst_SelectionChanged);
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Location = new System.Drawing.Point(24, 253);
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.Size = new System.Drawing.Size(736, 186);
+            this.dataGridView.TabIndex = 6;
             // 
             // estudiantes
             // 
@@ -121,9 +121,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.estudiantes);
-            this.Controls.Add(this.listEst);
+            this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.eliminar);
-            this.Controls.Add(this.nombres);
+            this.Controls.Add(this.filtroNombre);
             this.Controls.Add(this.nombre);
             this.Controls.Add(this.iconBorrar);
             this.Controls.Add(this.listaEst);
@@ -132,7 +132,7 @@
             this.Text = "Eliminar Estudiante";
             this.Load += new System.EventHandler(this.EliminarEstudiante_Load);
             ((System.ComponentModel.ISupportInitialize)(this.iconBorrar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listEst)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -144,9 +144,9 @@
         private MetroFramework.Controls.MetroLink listaEst;
         private System.Windows.Forms.PictureBox iconBorrar;
         private MetroFramework.Controls.MetroLabel nombre;
-        private MetroFramework.Controls.MetroComboBox nombres;
+        private MetroFramework.Controls.MetroComboBox filtroNombre;
         private MetroFramework.Controls.MetroButton eliminar;
-        private System.Windows.Forms.DataGridView listEst;
+        private System.Windows.Forms.DataGridView dataGridView;
         private MetroFramework.Controls.MetroLabel estudiantes;
     }
 }

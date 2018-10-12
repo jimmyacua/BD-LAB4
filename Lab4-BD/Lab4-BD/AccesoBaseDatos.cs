@@ -14,10 +14,10 @@ namespace Lab_Interfaces
     class AccesoBaseDatos
     {
         /*En Initial Catalog se agrega la base de datos propia. Intregated Security es para utilizar Windows Authentication*/
-        String conexion = "Data Source=10.1.4.55; Initial Catalog= DB_B50060; Integrated Security=SSPI";
+        //String conexion = "Data Source=10.1.4.55; Initial Catalog= DB_B50060; Integrated Security=SSPI";
 
         /*En Initial Catalog se agrega la base de datos propia. Intregated Security = false es para utilizar SQL SERVER Authentication*/
-        //String conexion = "Data Source=10.1.4.55;User ID=DB_B50060;Password=password; Initial Catalog=dabatase_name; Integrated Security=false";
+        String conexion = "Data Source=10.1.4.55;User ID= B50060;Password= Saprissa.13; Initial Catalog=DB_B50060; Integrated Security=false";
 
         /**
          * Constructor de la clase

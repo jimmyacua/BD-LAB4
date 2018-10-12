@@ -25,10 +25,10 @@ namespace Lab4_BD
         private void ListaEstudiante_Load(object sender, EventArgs e)
         {
             //Llena el combobox de nombres de estudiante
-            LlenarCombobox(nombres);
+            LlenarCombobox(filtroNombre);
             //Llena el datagridview de estudiantes con todas las tuplas de
             //estudiante de la interfaz
-            LlenarTabla(listEstu, null, null);
+            LlenarTabla(dataGridView, null, null);
         }
 
         private void metroLabel1_Click(object sender, EventArgs e)
@@ -38,14 +38,14 @@ namespace Lab4_BD
 
         private void nombres_SelectedIndexChanged(object sender, EventArgs e)
         {
-               LlenarTabla(listEstu, nombres.Text, null);
+               LlenarTabla(dataGridView, filtroNombre.Text, null);
         }
 
         private void LlenarCombobox(ComboBox combobox)
         {
             // Se obtiene un dataReader con todos los nombres de los estudiantes
             //de la base de datos
-            SqlDataReader datos = estudiante.ObtenerListaNombresEstudiantes(); //está tardando mucho acá
+            SqlDataReader datos = estudiante.ObtenerListaNombresEstudiantes();
             /* Si existen datos en la base de datos se carga como primer
             elemento del combobox un dato "Seleccione" y luego se cargan todos los
             datos de la base de datos*/
@@ -104,7 +104,7 @@ namespace Lab4_BD
 
         private void buscar_Click(object sender, EventArgs e)
         {
-            
+            LlenarTabla(dataGridView, null, textBox.Text);
         }
 
         private void agregarEst_Click(object sender, EventArgs e)

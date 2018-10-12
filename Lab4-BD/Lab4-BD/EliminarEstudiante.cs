@@ -15,7 +15,8 @@ namespace Lab4_BD
 {
     public partial class EliminarEstudiante : MetroForm
     {
-        public Estudiante estudiante;
+        Estudiante estudiante;
+
         public EliminarEstudiante()
         {
             InitializeComponent();
@@ -25,10 +26,10 @@ namespace Lab4_BD
         private void EliminarEstudiante_Load(object sender, EventArgs e)
         {
             //Llena el combobox de nombres de estudiante
-            LlenarCombobox(nombres);
+            LlenarCombobox(filtroNombre);
             //Llena el datagridview de estudiantes con todas las tuplas de
             //estudiante de la interfaz
-            LlenarTabla(listEst);
+            LlenarTabla(dataGridView, null);
         }
 
         private void metroLink2_Click(object sender, EventArgs e)
@@ -67,18 +68,26 @@ namespace Lab4_BD
             combobox.SelectedIndex = 0;
         }
 
-        private void LlenarTabla(DataGridView dataGridView)
+        private void LlenarTabla(DataGridView dataGridView, string filtroComBox)
         {
             /* Obtiene un dataTable con todos los estudiantes que se encuentran
             en la base de datos (null, null) es para vengan todas las tuplas sin
             ningún filtro*/
-            DataTable tabla = estudiante.ObtenerEstudiantes(null, null);
+            DataTable tabla = new DataTable();
+            if (filtroComBox == null)
+            {
+                tabla = estudiante.ObtenerEstudiantes(null, null);
+            }
+           else
+            {
+                tabla = estudiante.ObtenerEstudiantes(filtroComBox, null);
+            }
             // Se inicializa el source para cargar el datagridview y se le
             //asigna el dataTable obtenido
             BindingSource bindingSource = new BindingSource();
             bindingSource.DataSource = tabla;
             dataGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader);
-            dataGridView.DataSource = bindingSource;
+            dataGridView.DataSource = bindingSource; 
             // Ciclo para darle un ancho a cada columna del datagridview proporcionado
             for (int i = 0; i < dataGridView.ColumnCount; i++)
             {
@@ -86,16 +95,16 @@ namespace Lab4_BD
             }
         }
 
-        private void listEst_SelectionChanged(object sender, EventArgs e)
-        {
-            LlenarTabla(listEst);
-        }
-
         private void agregarEst_Click(object sender, EventArgs e)
         {
             AgregarEstudiante agregar = new AgregarEstudiante();
             agregar.Show();
             Hide();
+        }
+
+        private void filtroNombre_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LlenarTabla(dataGridView, filtroNombre.Text);
         }
     }
 }

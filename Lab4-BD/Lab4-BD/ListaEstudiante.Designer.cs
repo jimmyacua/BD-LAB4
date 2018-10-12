@@ -33,13 +33,13 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.nombre = new MetroFramework.Controls.MetroLabel();
             this.filtro = new MetroFramework.Controls.MetroLabel();
-            this.nombres = new MetroFramework.Controls.MetroComboBox();
-            this.filtros = new MetroFramework.Controls.MetroTextBox();
+            this.filtroNombre = new MetroFramework.Controls.MetroComboBox();
             this.buscar = new MetroFramework.Controls.MetroButton();
             this.listEst = new MetroFramework.Controls.MetroLabel();
-            this.listEstu = new System.Windows.Forms.DataGridView();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.textBox = new MetroFramework.Controls.MetroTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listEstu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // agregarEst
@@ -90,46 +90,16 @@
             this.filtro.Text = "Filtro General";
             this.filtro.Click += new System.EventHandler(this.metroLabel1_Click);
             // 
-            // nombres
+            // filtroNombre
             // 
-            this.nombres.FormattingEnabled = true;
-            this.nombres.ItemHeight = 23;
-            this.nombres.Location = new System.Drawing.Point(102, 167);
-            this.nombres.Name = "nombres";
-            this.nombres.Size = new System.Drawing.Size(229, 29);
-            this.nombres.TabIndex = 5;
-            this.nombres.UseSelectable = true;
-            this.nombres.SelectedIndexChanged += new System.EventHandler(this.nombres_SelectedIndexChanged);
-            // 
-            // filtros
-            // 
-            // 
-            // 
-            // 
-            this.filtros.CustomButton.Image = null;
-            this.filtros.CustomButton.Location = new System.Drawing.Point(271, 1);
-            this.filtros.CustomButton.Name = "";
-            this.filtros.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.filtros.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.filtros.CustomButton.TabIndex = 1;
-            this.filtros.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.filtros.CustomButton.UseSelectable = true;
-            this.filtros.CustomButton.Visible = false;
-            this.filtros.Lines = new string[0];
-            this.filtros.Location = new System.Drawing.Point(471, 173);
-            this.filtros.MaxLength = 32767;
-            this.filtros.Name = "filtros";
-            this.filtros.PasswordChar = '\0';
-            this.filtros.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.filtros.SelectedText = "";
-            this.filtros.SelectionLength = 0;
-            this.filtros.SelectionStart = 0;
-            this.filtros.ShortcutsEnabled = true;
-            this.filtros.Size = new System.Drawing.Size(293, 23);
-            this.filtros.TabIndex = 6;
-            this.filtros.UseSelectable = true;
-            this.filtros.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.filtros.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.filtroNombre.FormattingEnabled = true;
+            this.filtroNombre.ItemHeight = 23;
+            this.filtroNombre.Location = new System.Drawing.Point(102, 167);
+            this.filtroNombre.Name = "filtroNombre";
+            this.filtroNombre.Size = new System.Drawing.Size(229, 29);
+            this.filtroNombre.TabIndex = 5;
+            this.filtroNombre.UseSelectable = true;
+            this.filtroNombre.SelectedIndexChanged += new System.EventHandler(this.nombres_SelectedIndexChanged);
             // 
             // buscar
             // 
@@ -150,24 +120,54 @@
             this.listEst.TabIndex = 8;
             this.listEst.Text = "Estudiantes:";
             // 
-            // listEstu
+            // dataGridView
             // 
-            this.listEstu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.listEstu.Location = new System.Drawing.Point(23, 266);
-            this.listEstu.Name = "listEstu";
-            this.listEstu.Size = new System.Drawing.Size(754, 161);
-            this.listEstu.TabIndex = 9;
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Location = new System.Drawing.Point(23, 266);
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.Size = new System.Drawing.Size(754, 161);
+            this.dataGridView.TabIndex = 9;
+            // 
+            // textBox
+            // 
+            // 
+            // 
+            // 
+            this.textBox.CustomButton.Image = null;
+            this.textBox.CustomButton.Location = new System.Drawing.Point(273, 1);
+            this.textBox.CustomButton.Name = "";
+            this.textBox.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.textBox.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.textBox.CustomButton.TabIndex = 1;
+            this.textBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.textBox.CustomButton.UseSelectable = true;
+            this.textBox.CustomButton.Visible = false;
+            this.textBox.Lines = new string[0];
+            this.textBox.Location = new System.Drawing.Point(469, 167);
+            this.textBox.MaxLength = 32767;
+            this.textBox.Name = "textBox";
+            this.textBox.PasswordChar = '\0';
+            this.textBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.textBox.SelectedText = "";
+            this.textBox.SelectionLength = 0;
+            this.textBox.SelectionStart = 0;
+            this.textBox.ShortcutsEnabled = true;
+            this.textBox.Size = new System.Drawing.Size(295, 23);
+            this.textBox.TabIndex = 24;
+            this.textBox.UseSelectable = true;
+            this.textBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.textBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // ListaEstudiante
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.listEstu);
+            this.Controls.Add(this.textBox);
+            this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.listEst);
             this.Controls.Add(this.buscar);
-            this.Controls.Add(this.filtros);
-            this.Controls.Add(this.nombres);
+            this.Controls.Add(this.filtroNombre);
             this.Controls.Add(this.filtro);
             this.Controls.Add(this.nombre);
             this.Controls.Add(this.pictureBox1);
@@ -177,7 +177,7 @@
             this.Text = "Lista Estudiantes";
             this.Load += new System.EventHandler(this.ListaEstudiante_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listEstu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,10 +190,10 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private MetroFramework.Controls.MetroLabel nombre;
         private MetroFramework.Controls.MetroLabel filtro;
-        private MetroFramework.Controls.MetroComboBox nombres;
-        private MetroFramework.Controls.MetroTextBox filtros;
+        private MetroFramework.Controls.MetroComboBox filtroNombre;
         private MetroFramework.Controls.MetroButton buscar;
         private MetroFramework.Controls.MetroLabel listEst;
-        private System.Windows.Forms.DataGridView listEstu;
+        private System.Windows.Forms.DataGridView dataGridView;
+        private MetroFramework.Controls.MetroTextBox textBox;
     }
 }
