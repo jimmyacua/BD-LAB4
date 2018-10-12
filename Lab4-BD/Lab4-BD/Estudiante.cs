@@ -61,9 +61,13 @@ namespace Lab4_BD
                 //tiene el filtro
             else if (filtroGeneral != null)
                 {
-                    tabla = bd.EjecutarConsultaTabla("SELECT * FROM Estudiante WHERE Nombre = '" 
-                        + filtroGeneral + "'" );
-                    }
+                    /*tabla = bd.EjecutarConsultaTabla("SELECT * FROM Estudiante WHERE Nombre = '" 
+                        + filtroGeneral + "'" );*/
+                  tabla = bd.EjecutarConsultaTabla("SELECT * FROM Estudiante WHERE Nombre LIKE '%" +
+                filtroGeneral + "%' OR Apellido1 like '%" + filtroGeneral +
+                "%' OR apellido2 like '%" + filtroGeneral + "%' OR Cedula like '%"
+                + filtroGeneral + "%' OR Carné like '%" + filtroGeneral + "%'");
+                }
                 //Si el filtro general no es nulo cargan los estudiantes con
                 //atributos que contengan ese filtro como parte del atributo(like)
                 else if (filtroNombre != null)
@@ -79,7 +83,8 @@ namespace Lab4_BD
                 //coincidan con ambos filtros
                 else if (filtroGeneral != null && filtroNombre != null)
                 {
-                    tabla = bd.EjecutarConsultaTabla("Select * from estudiante where Nombre = '" + filtroNombre + "' && Nombre like '%" +
+                    tabla = bd.EjecutarConsultaTabla("Select * from estudiante where Nombre = '" 
+                        + filtroNombre + "' && Nombre like '%" +
                     filtroGeneral + "%' OR Apellido1 like '%" + filtroGeneral +
                     "%' OR apellido2 like '%" + filtroGeneral + "%' OR Cedula like '%" 
                     + filtroGeneral + "%' OR Carné like '%" + filtroGeneral + "%'");
